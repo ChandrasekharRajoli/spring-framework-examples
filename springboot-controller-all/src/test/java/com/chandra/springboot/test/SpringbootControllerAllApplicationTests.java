@@ -1,4 +1,4 @@
-package com.chandra.springboot.springbootcontrollerall;
+package com.chandra.springboot.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
