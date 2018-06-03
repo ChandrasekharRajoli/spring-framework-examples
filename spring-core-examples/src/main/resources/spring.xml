@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd"> -->
+<!-- We can have DOCTYPE (above code) or below beans tag -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xso="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="traingle" class="springdemo.beanfactory.example.Traingle" />
+
+	<!-- ApplicationContext -->
+	<bean id="employee1" class="springdemo.applicationcontext.example.Employee">
+		<property name="employeeType" value="Manager" />
+	</bean>
+
+	<!-- Compiletime error - No constructor with 2 arguments defined in class -->
+	<bean id="employee2" class="springdemo.applicationcontext.example.Employee2">
+		<constructor-arg type="int" name="empId" value="12" />
+		<constructor-arg name="empName" value="Chandrasekhar" />
+		<constructor-arg name="empDepartment" value="Technology" />
+	</bean>
+	<bean id="employee3" class="springdemo.applicationcontext.example.Employee2">
+		<constructor-arg index="0" type="int" name="empId" value="12" />
+		<constructor-arg index="1" type="java.lang.String" name="empName" value="Chandrasekhar" />
+		<constructor-arg index="2" type="java.lang.String" name="empDepartment" value="Technology" />
+	</bean>
+
+	<bean id="traingle2" class="springdemo.applicationcontext.example.two.Traingle">
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+	</bean>
+	<bean id="pointB" class="springdemo.applicationcontext.example.two.Point">
+		<property name="x" value="40" />
+		<property name="y" value="60" />
+	</bean>
+	<bean id="pointA" class="springdemo.applicationcontext.example.two.Point">
+		<property name="x" value="10" />
+		<property name="y" value="20" />
+	</bean>
+
+	<!-- Giving different names to the same bean -->
+	<alias name="traingle2" alias="traingle2-alias" />
+	<!-- Other way to give different name for a bean using name attribute -->
+	<bean id="traingle3" class="springdemo.applicationcontext.example.two.Traingle" name="traingle3-alias">
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+	</bean>
+
+	<!-- idref - restrict the reference to only id, ref means to any id or name or alias 
+	
+	<bean id="traingle4" class="springdemo.applicationcontext.example.two.Traingle"> 
+		<property name="pointA"> <idref="pointA"></idref> </property> <property name="pointB" ref="pointB" /> 
+	</bean> -->
+
+
+	<bean id="traingle5" class="springdemo.applicationcontext.example.two.Traingle">
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+		
+		<property name="pointList">  <!-- default list is java.util.ArrayList -->
+			<list> <!-- define generics value-type="springdemo.applicationcontext.example.two.Point"  -->
+				<ref bean="pointA" />
+				<ref bean="pointB" />
+			</list>
+		</property>
+
+	     <!-- <util:list id="pointList" list-class="java.util.LinkedList"> 
+	            <ref bean="pointA" /> <ref bean="pointB" /> 
+	          </util:list>
+	     -->
+		
+		<property name="pointMap">  <!-- default map is java.util.LinkedHashMap -->
+			<map>
+				<entry key-ref="pointA" value="One" />
+				<entry key-ref="pointB" value="Two" />
+			</map>
+		</property>
+		<property name="pointSet"> <!-- default map is java.util.LinkedHashSet -->
+			<set>
+				<ref bean="pointA"/>
+				<ref bean="pointB"/>
+			</set>
+		</property>
+	</bean>
+</beans>
