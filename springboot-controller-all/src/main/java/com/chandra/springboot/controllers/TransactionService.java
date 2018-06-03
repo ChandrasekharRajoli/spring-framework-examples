@@ -27,11 +27,7 @@ public class TransactionService {
         return txnRepository.saveAndFlush(new Transactions(txnAmount, txnAccntNo, accountName, txnSrcCtry, txnDestCtry));
     }
     
-    public Transactions model(Long txnAccntNo, BigDecimal txnAmount,
-            String accountName, String txnSrcCtry, String txnDestCtry) {
-        
-        
-        return null;
+    public void deleteTxnById(Long txnId) {
+        txnRepository.deleteByTxnId(txnId);
     }
-    
 }
