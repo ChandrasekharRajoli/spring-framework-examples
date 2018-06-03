@@ -1,0 +1,6 @@
+INSERT INTO TRANSACTIONS(txn_id, txn_amt, txn_accnt_name, txn_accnt_no, txn_created_by, txn_created_time, txn_dt, txn_src_ctry,txn_dest_ctry) VALUES(1, 201522.25, 'Chandra', 701245875, 'Chandra', CURRENT_TIMESTAMP(), CURRENT_DATE(), 'IND', 'USA');
+INSERT INTO TRANSACTIONS(txn_id, txn_amt, txn_accnt_name, txn_accnt_no, txn_created_by, txn_created_time, txn_dt, txn_src_ctry,txn_dest_ctry) VALUES(2, 1522.25, 'Chandra', 701245875, 'Chandra', CURRENT_TIMESTAMP(), CURRENT_DATE(), 'IND', 'USA');
+INSERT INTO TRANSACTIONS(txn_id, txn_amt, txn_accnt_name, txn_accnt_no, txn_created_by, txn_created_time, txn_dt, txn_src_ctry,txn_dest_ctry) VALUES(3, 22.25, 'Chandra', 701245875, 'Chandra', CURRENT_TIMESTAMP(), CURRENT_DATE(), 'IND', 'USA');
+INSERT INTO TRANSACTIONS(txn_id, txn_amt, txn_accnt_name, txn_accnt_no, txn_created_by, txn_created_time, txn_dt, txn_src_ctry,txn_dest_ctry) VALUES(4, 522.25, 'Chandra', 701245875, 'Chandra', CURRENT_TIMESTAMP(), CURRENT_DATE(), 'IND', 'USA');
+INSERT INTO TRANSACTIONS(txn_id, txn_amt, txn_accnt_name, txn_accnt_no, txn_created_by, txn_created_time, txn_dt, txn_src_ctry,txn_dest_ctry) VALUES(5, 01522.25, 'Chandra', 701245875, 'Chandra', CURRENT_TIMESTAMP(), CURRENT_DATE(), 'IND', 'USA');
+
